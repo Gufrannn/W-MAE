@@ -292,8 +292,8 @@ if __name__ == '__main__':
     args = args.parse_args()
     args.run_mode = 'finetuning'
     args.run_num = 'p_qkv_16_16_precip' # 'p_1'
-    # args.pretrained_ckpt_path = '/home/lichangyu/data/codes/mae/mae-main/output_dir/p_qkv_16_16_next_finetune_577/pretraining/ckpt/checkpoint-721.pth'
-    args.pretrained_ckpt_path = '/home/lichangyu/data/codes/mae/mae-main/output_dir/p_qkv_16_16_next_finetune_twoStep/finetuning/ckpt/checkpoint-190.pth'
+    args.pretrained_ckpt_path = '/home/lichangyu/data/codes/mae/mae-main/output_dir/p_qkv_16_16_next_finetune_577/pretraining/ckpt/checkpoint-721.pth'
+    # args.pretrained_ckpt_path = '/home/lichangyu/data/codes/mae/mae-main/output_dir/p_qkv_16_16_next_finetune_twoStep/finetuning/ckpt/checkpoint-190.pth'
     # p_qkv_16_16_next_finetune_577/pretraining/ckpt  best  cur
     args.output_dir = '/home/lichangyu/data/codes/mae/mae-main/output_dir'
     args.yaml_config = './config/AFNO_16_16_precip.yaml'
