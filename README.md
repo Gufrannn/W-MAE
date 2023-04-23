@@ -1,7 +1,7 @@
 # W-MAE: Pre-trained weather model with masked autoencoder for multi-variable weather forecasting
 Created by [Xin Man](https://github.com/Gufrannn), [Chenghong Zhang](), [Changyu Li](), [Jie Shao](https://cfm.uestc.edu.cn/~shaojie/). ([Paper](https://arxiv.org/pdf/2210.02199))
 
-[PyTorch](https://github.com/Gufrannn/W-MAE) & [MindSpore](https://github.com/Gufrannn/W-MAE_MindSpore) Implementations
+[PyTorch](https://github.com/Gufrannn/W-MAE/PyTorch) & [MindSpore](https://github.com/Gufrannn/W-MAE/MindSpore) Implementations
 
 This is the official PyTorch implementation of W-MAE presented by paper [W-MAE: Pre-trained weather model with masked autoencoder for multi-variable weather forecasting](https://arxiv.org/pdf/2210.02199). The codes are used to reproduce experimental results of the proposed W-MAE framework in the paper.
 This repository currently supports finetuning W-MAE on multi-variable forecasting and precipitation forecasting tasks.
