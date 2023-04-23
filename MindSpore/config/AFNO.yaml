@@ -1,0 +1,105 @@
+### base config ###
+full_field: &FULL_FIELD
+  patch_size: [16, 16]
+  # patch_size: [8, 8]
+  img_size: [720, 1440]
+  precip_mode: !!bool False
+  
+  exp_dir: './W-MAE/'
+  train_data_path: './train'
+  valid_data_path: './train'
+  inf_data_path:   './out_of_sample'
+  time_means_path:   './additional/time_means.npy'
+  global_means_path: './additional/global_means.npy'
+  global_stds_path:  './additional/global_stds.npy'
+  
+  in_channels: [0, 1 ,2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+  out_channels: [0, 1 ,2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+
+  resuming: !!bool False
+  loss: 'l2'
+  lr: 1E-3
+  scheduler: 'ReduceLROnPlateau'
+  num_data_workers: 4
+  dt: 1 # how many timesteps ahead the model will predict
+  n_history: 0 #how many previous timesteps to consider
+  prediction_type: 'iterative'
+  prediction_length: 41 #applicable only if prediction_type == 'iterative'
+  n_initial_conditions: 5 #applicable only if prediction_type == 'iterative'
+  ics_type: "default"
+  mae_pretrain: !!bool False
+  save_raw_forecasts: !!bool True
+  save_channel: !!bool False
+  masked_acc: !!bool False
+  maskpath: None
+  perturb: !!bool False
+  add_grid: !!bool False
+  N_grid_channels: 0
+  gridtype: 'sinusoidal' #options 'sinusoidal' or 'linear'
+  roll: !!bool False
+  max_epochs: 50
+  batch_size: 8
+  
+  #afno hyperparams
+  num_blocks: 8
+  nettype: 'afno'
+  width: 56
+  modes: 32
+  #options default, residual
+  target: 'default' 
+  normalization: 'zscore' #options zscore (minmax not supported) 
+
+  orography: !!bool False
+  orography_path: None
+
+  log_to_screen: !!bool True
+  log_to_wandb: !!bool True
+  save_checkpoint: !!bool True
+
+  enable_nhwc: !!bool False
+  optimizer_type: 'FusedAdam'
+  crop_size_x: None
+  crop_size_y: None
+
+  two_step_training: !!bool False
+  plot_animations: !!bool False
+
+  add_noise: !!bool False
+  noise_std: 0
+
+mae_backbone:
+  <<: *FULL_FIELD
+  mae_pretrain: !!bool True
+  mask_ratio: 0.75
+  checkpoint_path: ''
+  enable_amp: !!bool True
+  lr: 5E-4
+  batch_size: 4
+  max_epochs: 1000
+  scheduler: 'CosineAnnealingLR'
+  orography: !!bool False
+  orography_path: None 
+
+afno_one_step:
+  <<: *FULL_FIELD
+  mae_pretrain: !!bool False
+  mask_ratio: 0.0
+  lr: 5e-5
+  batch_size: 2
+  max_epochs: 1000
+  resuming: !!bool True
+  resume_checkpoint_path: ''
+  orography: !!bool False
+  orography_path: None 
+
+### PRECIP ###
+precip:
+  <<: *FULL_FIELD
+  mae_pretrain: !!bool False
+  mask_ratio: 0
+  precip_mode: !!bool True
+  model_wind_path: ''
+  precip_eps: !!float 1e-5
+  batch_size: 1
+
+  
