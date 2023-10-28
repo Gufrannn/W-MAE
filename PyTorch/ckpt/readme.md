@@ -1,1 +1,1 @@
-you can download the checkpoint file here: [checkpoint files]([https://app.globus.org/file-manager?origin_id=945b3c9e-0f8c-11ed-8daf-9f359c660fbd&origin_path=%2F~%2Fmodel_weights%2F](https://drive.google.com/file/d/15iaB_i_sYvlSQ7C8iAWeNIDjCaGvdVcn/view?usp=sharing)https://drive.google.com/file/d/15iaB_i_sYvlSQ7C8iAWeNIDjCaGvdVcn/view?usp=sharing)
+You can download the checkpoint file here: [checkpoint files](https://drive.google.com/file/d/15iaB_i_sYvlSQ7C8iAWeNIDjCaGvdVcn/view?usp=sharing)
